@@ -17,7 +17,9 @@
             <el-tag class="tag" v-for="(label,idx) in toysSelect.labels" :key="label" :type="items[idx].type" effect="dark"> {{ label}} </el-tag>
             </div>
             <el-button  @click="closeDetails" type="success" plain>Close</el-button>
-              <chat-room  />
+
+              <chat-room  :toyId="toyId"/>
+
               <div>
                  <h1>Reviews</h1>
                 <input type="text" placeholder="Add Review" v-model="emptyReview.txt">
@@ -57,7 +59,8 @@ import Avatar from 'vue-avatar'
         emptyReview:{
         byUserId:null,
         aboutToyId : null,
-        txt : ""
+        txt : "",
+        toyId:''
         },
         toysSelect: null,
          items: [
@@ -86,6 +89,7 @@ import Avatar from 'vue-avatar'
       },
       getToy(){
         const {toyId}= this.$route.params
+        this.toyId=toyId
         console.log(toyId);
         this.emptyReview.aboutToyId = toyId
         this.$store.dispatch({ type: 'toysById' ,  toyId})

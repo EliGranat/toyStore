@@ -3,34 +3,37 @@ import { httpService } from './http.service'
 import { utilService } from './util.service.js'
 // import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
 
-import Axios from 'axios'
-var axios = Axios.create({ withCredentials: true })
-
+// import Axios from 'axios'
+// var axios = Axios.create({ withCredentials: true })
+// function _getUrl(id = '') {
+//     const BASE_URL = (process.env.NODE_ENV !== 'development') ?
+//         '/api/toy' :
+//         'http://localhost:3030/api/toy'
+//     return `${BASE_URL}/${id}`
+// }
 export const toyService = {
         query,
         getById,
-        // remove,
+        remove,
         save,
-        getEmptyToy,
-        // isSameLabels,
-        // changeFilterSelect,
+        getEmptyToy
     }
     // updateArray()
 
-// function updateArray() {
-//     query().then(toys => {
-//         toys.forEach(toy => {
-//             toy.createdAt = utilService.getRandomInt(Date.now() - 100000000, Date.now())
-//             save(toy)
-//                 .then(CurrToy => {
-//                     console.log('update success', CurrToy);
-//                 })
-//         })
-//     })
-// }
+function updateArray() {
+    query([])
+    .then(toys=>{
+        toys.forEach(toy => {
+                toy.createdAt = utilService.getRandomInt(Date.now() - 100000000, Date.now())
+                save(toy)
+                    .then(CurrToy => {
+                            console.log('update success', CurrToy);
+                        })
+                })
+            })
+}
 
 async function query(filterBy) {
-    console.log(filterBy.sortBy, '\n sortBy service');
     const labels = [
         "On wheels",
         "Box game",
@@ -42,7 +45,7 @@ async function query(filterBy) {
     ]
     if (!filterBy.labels.length) filterBy.labels = labels
     try {
-        const toys = await httpService.get('toy', filterBy)
+        const toys = await httpService.get('toy',filterBy)
         console.log(toys);
         return toys
     } catch (err) {
@@ -50,17 +53,11 @@ async function query(filterBy) {
     }
 }
 
-function _getUrl(id = '') {
-    const BASE_URL = (process.env.NODE_ENV !== 'development') ?
-        '/api/toy' :
-        'http://localhost:3030/api/toy'
-    return `${BASE_URL}/${id}`
-}
+
 
 async function getById(toyId) {
     try {
         const toy = await httpService.get(`toy/${toyId}`)
-        console.log(toy, 'byId');
         return toy
     } catch (err) {
         throw err
@@ -85,20 +82,19 @@ async function addToy(toy) {
 async function updateToy(updateToy) {
     try {
         const upToy = await httpService.put(`toy/${updateToy._id}`, updateToy)
-        console.log(upToy);
         return upToy
     } catch (err) {
         throw err
     }
 }
 
-// async function remove(toyId) {
-//     try {
-//         await httpService.delete(_getUrl(toyId))
-//     } catch (err) {
-//         throw err
-//     }
-// }
+async function remove(toyId) {
+    try {
+        await httpService.delete(`toy/${toyId}`)
+    } catch (err) {
+        throw err
+    }
+}
 
 // function changeFilterSelect(newFilter) {
 //     const labels = { "On wheels": false, "Box game": false, "Art": false, "Baby": false, "Doll": false, "Puzzle": false, "Outdoor": false }

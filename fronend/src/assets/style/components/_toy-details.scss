@@ -19,7 +19,8 @@
     img {
         height: 250px;
     }
-    .review {
+    .review,
+    .msg {
         background-color: rgba(255, 255, 255, 0.493);
         margin: 5px;
         width: 70%;
@@ -39,6 +40,15 @@
         .right-side {
             margin-inline-start: 20px;
             line-height: 1rem;
+        }
+    }
+    .chat-room {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 50%;
+        .msg {
+            width: 100%;
         }
     }
 }

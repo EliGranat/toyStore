@@ -4,8 +4,9 @@
           <router-link to="/">Home</router-link> |
           <router-link to="/about">About</router-link> |
           <router-link to="/toys">Toys</router-link> |
-          <router-link to="/dashboard">Dashboard</router-link> 
-          <button  v-if="$store.getters.getUserLog" @click="goUserPage"> Profile </button> 
+          <router-link to="/dashboard">Dashboard</router-link> | 
+          <router-link  v-if="$store.getters.getUserLog" :to="`/review-user/${$store.getters.getUserLog._id}`"> Profile </router-link> 
+          
         <button v-if="$store.getters.getUserLog" @click="logOut" > LogOut </button>          
         </div>
     </header>
@@ -17,9 +18,11 @@ export default {
         async logOut(){
           await this.$store.dispatch({type:'logout'})
             this.$router.push('/')
-      },
+      }
+    }, computed:{
+      
       goUserPage(){
-        this.$router.push(`review-user/${this.$store.getters.getUserLog._id}`)
+        return `review-user/${this.$store.getters.getUserLog._id}`
       }
     }
 }

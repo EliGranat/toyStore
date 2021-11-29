@@ -1,5 +1,4 @@
 import { reviewService } from '../services/review.service.js'
-// import { socketService, SOCKET_EVENT_REVIEW_ADDED, SOCKET_EVENT_REVIEW_ABOUT_YOU } from '../services/socket.service'
 
 export const myReviewStore = {
     state: {
@@ -44,17 +43,6 @@ export const myReviewStore = {
             try {
                 const reviews = await reviewService.query();
                 context.commit({ type: 'setReviews', reviews })
-                console.log(reviews);
-                // socketService.off(SOCKET_EVENT_REVIEW_ADDED)
-                // socketService.on(SOCKET_EVENT_REVIEW_ADDED, review => {
-                //     console.log('Got review from socket', review);
-                //     context.commit({ type: 'addReview', review })
-                // })
-                // socketService.off(SOCKET_EVENT_REVIEW_ABOUT_YOU)
-                // socketService.on(SOCKET_EVENT_REVIEW_ABOUT_YOU, review => {
-                //     console.log('Review about me!', review);
-
-                // })
 
             } catch (err) {
                 console.log('reviewStore: Error in loadReviews', err)

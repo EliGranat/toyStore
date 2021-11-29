@@ -1,7 +1,10 @@
 <template>
     <div class="home">
-
       <log-in class="card-log" @log="log" @signUp="signUp"/>
+       <textarea name="" id="" cols="30" rows="10">
+           user Admin : userName 'a' password :  101
+           regular user : userName 'z' password :  202
+      </textarea>
     </div>
 </template>
 

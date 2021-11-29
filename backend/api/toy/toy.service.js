@@ -7,7 +7,6 @@ const ObjectId = require('mongodb').ObjectId
 
 
 async function query(filterBy = {}) {
-    console.log(filterBy);
     var criteria = (Object.keys(filterBy).length) ? _buildCriteria(filterBy) : {}
     try {
         var sortBy = {

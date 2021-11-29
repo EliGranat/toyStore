@@ -3,15 +3,10 @@ const ObjectId = require('mongodb').ObjectId
 const asyncLocalStorage = require('../../services/als.service')
 
 async function query(filterBy = {}) {
-    console.log(filterBy, 'id');
-
     try {
-
         const criteria = (Object.keys(filterBy).length) ? _buildCriteria(filterBy) : {}
-            // console.log(criteria, 'objId');
         const collection = await dbService.getCollection('review')
         var reviews = await collection.find(criteria).toArray()
-        console.log(reviews, 'hello');
         reviews = await collection.aggregate([{
                 $match: criteria
             },
@@ -45,7 +40,6 @@ async function query(filterBy = {}) {
             delete review.aboutToyId
             return review
         })
-        console.log(reviews, 'reviews');
         return reviews
     } catch (err) {
         logger.error('cannot find reviews', err)

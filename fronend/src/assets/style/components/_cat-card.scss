@@ -1,0 +1,41 @@
+.card-cat {
+    // position: relative;
+    background-color: $clr1;
+
+    img.cat-image {
+        aspect-ratio: 1 / 1;
+        // height: 100%;
+        object-fit: cover;
+        mix-blend-mode: multiply;
+        filter: grayscale(1) contrast(1.3);
+    }
+
+    .cat-tag {
+        font-family: GreatVibes;
+        font-size: rem(64px);
+        color: $clr5;
+        position: relative;
+    }
+
+    @for $i from 1 through 6 {
+
+        &:nth-child(6n + #{$i}) {
+            background-color: adjust-hue($clr1, $i * 4deg);
+        }
+    }
+
+    &:nth-child(4n + 0) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    // &::before {
+    //     content: "";
+    //     background: linear-gradient(to top, $clr1 0%, rgba($clr1, 0) 100%);;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    // }
+}

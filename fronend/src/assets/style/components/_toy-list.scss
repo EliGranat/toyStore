@@ -1,0 +1,13 @@
+.toy-list {
+    display: grid;
+    gap: 25px;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax( 250px, 1fr));
+    justify-items: center;
+    & .btn-add-card {
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+        font-size: 2rem;
+    }
+}

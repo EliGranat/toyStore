@@ -1,0 +1,21 @@
+.home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    .card-log {
+        background-color: antiquewhite;
+        height: 80%;
+        border-radius: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        input {
+            margin-bottom: 15px;
+        }
+    }
+}

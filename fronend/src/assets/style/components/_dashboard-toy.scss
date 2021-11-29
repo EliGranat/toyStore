@@ -1,0 +1,12 @@
+.dashboard-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 60vh;
+    .des {
+        min-width: 300px;
+    }
+}

@@ -1,0 +1,30 @@
+.card-toy {
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff7a7cc2 0%, #f0d0e8c4 100%);
+    box-shadow: 2px 1px 5px 4px #504E4F;
+    -webkit-text-stroke: 1px black;
+    text-transform: capitalize;
+    transition: transform 0.3s;
+    width: 300px;
+    height: 460px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-toy:hover {
+    transform: scale(1.07);
+}
+
+// .card-toy h3 {
+//     padding: 0 5px;
+// }
+// .card-toy h2 {
+//     font-size: 1rem;
+//     margin: 10px;
+// }
+.card-toy img {
+    max-height: 150px;
+}

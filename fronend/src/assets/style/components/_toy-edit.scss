@@ -1,0 +1,20 @@
+.toy-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // display: grid;
+    // gap: 25px;
+    // width: 100%;
+    // grid-template-columns: repeat(auto-fit, minmax( 250px, 1fr));
+    // justify-items: center;
+    // & .btn-add-card {
+    //     position: fixed;
+    //     right: 15px;
+    //     bottom: 15px;
+    //     font-size: 2rem;
+    // }
+    padding: 10px;
+    & .input {
+        max-width: 70vw;
+    }
+}

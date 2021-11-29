@@ -1,0 +1,19 @@
+header {
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background: linear-gradient(to bottom, $clr5 0%, $clr5 80%, rgba($clr5, 0) 100%);
+}
+
+.app-Header {
+    padding: 30px;
+    & a {
+        font-weight: bold;
+        color: #2c3e50;
+        &.router-link-exact-active {
+            color: #42b983;
+        }
+    }
+}

@@ -1,0 +1,8 @@
+footer {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background: linear-gradient(to top, $clr5 0%, $clr5 80%, rgba($clr5, 0) 100%);
+}
